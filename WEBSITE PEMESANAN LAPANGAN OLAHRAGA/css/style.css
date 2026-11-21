@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: hsl(206, 47%, 97%);
+    color: #24313d;
+}
+
+nav {
+    background: white;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.logo {
+    color: #159574;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav a {
+    text-decoration: none;
+    color: #52606d;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #159574;
+}
+
+.signin {
+    margin-left: auto;
+}
+
+.hero {
+    min-height: 470px;
+    padding: 90px 7%;
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.15)
+        ),
+        url("https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+/* FORM PENCARIAN */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 8px;
+    border-radius: 15px;
+    max-width: 850px;
+}
+
+.search-box select {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 10px;
+    border: none;
+    outline: none;
+    color: #687581;
+    font-size: 15px;
+}
+
+.search-box button {
+    background: #159574;
+    color: white;
+    border: none;
+    padding: 17px 28px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.search-box button:hover {
+    background: #10775e;
+}
+
+.container {
+    padding: 40px 7%;
+}
+
+.section-title {
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.category {
+    text-align: center;
+    cursor: pointer;
+}
+
+.category-icon {
+    background: #d9f7ed;
+    width: 95px;
+    height: 85px;
+    border-radius: 20px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.category h3 {
+    font-size: 17px;
+}
+
+.category:hover .category-icon {
+    background: #b8eddd;
+    transform: translateY(-4px);
+    transition: 0.3s;
+}
+
+.popular-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.popular-header a {
+    color: #159574;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.field-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.field-card:hover {
+    transform: translateY(-5px);
+}
+
+.field-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.field-info {
+    padding: 20px;
+}
+
+.field-info h3 {
+    margin-bottom: 10px;
+}
+
+.field-info p {
+    color: #6b7785;
+    margin-bottom: 12px;
+}
+
+.price {
+    color: #159574;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.book-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #159574;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.book-btn:hover {
+    background: #10775e;
+}
+
+footer {
+    text-align: center;
+    background: #173c35;
+    color: white;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        gap: 20px;
+        padding: 18px 5%;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .search-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box select {
+        width: 100%;
+    }
+
+    .categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fields {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 30px 5%;
+    }
+
+    .popular-header {
+        gap: 10px;
+    }
+}

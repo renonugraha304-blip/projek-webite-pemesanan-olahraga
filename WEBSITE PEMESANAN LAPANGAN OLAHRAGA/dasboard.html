@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapangin - Cari Lapangan Olahraga</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">📍 Lapangin</div>
+
+        <div>
+            <a href="#beranda">⌂ Beranda</a>
+            <a href="#populer">Dashboard</a>
+        </div>
+
+        <a href="#" class="signin">👤 Sign in</a>
+    </nav>
+
+    <section class="hero" id="beranda">
+
+        <h1>
+            Cari Lapangan Olahraga<br>
+            Jadi Lebih Mudah
+        </h1>
+
+        <p>
+            Sewa lapangan favoritmu untuk futsal, basket, voli, badminton,<br>
+            dan olahraga lainnya. Cepat, mudah, dan praktis!
+        </p>
+
+        <div class="search-box">
+
+            <select id="olahraga">
+                <option value="">⚽ Pilih jenis olahraga</option>
+                <option value="Futsal">Futsal</option>
+                <option value="Basket">Basket</option>
+                <option value="Voli">Voli</option>
+                <option value="Badminton">Badminton</option>
+                <option value="Sepak Bola">Sepak Bola</option>
+            </select>
+
+            <select id="lokasi">
+                <option value="">📍 Pilih lokasi</option>
+                <option value="Banjar">Banjar</option>
+                <option value="Ciamis">Ciamis</option>
+                <option value="Tasikmalaya">Tasikmalaya</option>
+                <option value="Bandung">Bandung</option>
+            </select>
+
+            <button onclick="cariLapangan()">
+                🔍 Cari Lapangan
+            </button>
+
+        </div>
+    </section>
+
+    <main class="container">
+
+        <h2 class="section-title">
+            Jelajahi Berdasarkan Olahraga
+        </h2>
+
+        <div class="categories">
+
+            <div class="category" onclick="pilihOlahraga('Futsal')">
+                <div class="category-icon">⚽</div>
+                <h3>Futsal</h3>
+            </div>
+
+            <div class="category" onclick="pilihOlahraga('Basket')">
+                <div class="category-icon">🏀</div>
+                <h3>Basket</h3>
+            </div>
+
+            <div class="category" onclick="pilihOlahraga('Voli')">
+                <div class="category-icon">🏐</div>
+                <h3>Voli</h3>
+            </div>
+
+            <div class="category" onclick="pilihOlahraga('Badminton')">
+                <div class="category-icon">🏸</div>
+                <h3>Badminton</h3>
+            </div>
+
+            <div class="category" onclick="pilihOlahraga('Sepak Bola')">
+                <div class="category-icon">⚽</div>
+                <h3>Sepak Bola</h3>
+            </div>
+
+        </div>
+
+        <div class="popular-header" id="populer">
+
+            <h2 class="section-title">
+                Lapangan Populer
+            </h2>
+
+            <a href="pemesanan.html">Lihat Semua →</a>
+
+        </div>
+
+        <div class="fields" id="daftar">
+
+            <div class="field-card"
+                 data-olahraga="Futsal"
+                 data-lokasi="Banjar">
+
+                <img
+                    src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80"
+                    alt="Lapangan futsal">
+
+            </div>
+
+            <div class="field-card"
+                 data-olahraga="Sepak Bola"
+                 data-lokasi="Ciamis">
+
+                <img
+                    src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=800&q=80"
+                    alt="Lapangan sepak bola">
+
+            </div>
+
+            <div class="field-card"
+                 data-olahraga="Basket"
+                 data-lokasi="Bandung">
+
+                <img
+                    src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80"
+                    alt="Lapangan basket">
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>
+            © 2026 Lapangin | Cari Lapangan Olahraga Jadi Lebih Mudah
+        </p>
+    </footer>
+
+    <script>
+        function pilihOlahraga(jenis) {
+
+            document.getElementById("olahraga").value = jenis;
+
+            document.getElementById("populer")
+                .scrollIntoView({ behavior: "smooth" });
+        }
+
+        function cariLapangan() {
+
+            const olahraga =
+                document.getElementById("olahraga").value;
+
+            const lokasi =
+                document.getElementById("lokasi").value;
+
+            const cards =
+                document.querySelectorAll(".field-card");
+
+            let ditemukan = 0;
+
+            cards.forEach(function(card) {
+
+                const cocokOlahraga =
+                    olahraga === "" ||
+                    card.dataset.olahraga === olahraga;
+
+                const cocokLokasi =
+                    lokasi === "" ||
+                    card.dataset.lokasi === lokasi;
+
+                if (cocokOlahraga && cocokLokasi) {
+                    card.style.display = "block";
+                    ditemukan++;
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+
+            document.getElementById("populer")
+                .scrollIntoView({ behavior: "smooth" });
+
+            if (ditemukan === 0) {
+                alert("Lapangan tidak ditemukan. Coba pilih kategori atau lokasi lain.");
+            }
+        }
+
+        function pesan(namaLapangan) {
+
+            alert(
+                "Kamu memilih " + namaLapangan +
+                ". Fitur pemesanan lengkap memerlukan sistem booking."
+            );
+
+        }
+    </script>
+
+</body>
+</html>
